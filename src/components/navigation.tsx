@@ -1,9 +1,7 @@
-// File: src/components/navigation.tsx
-// Path: ./src/components/navigation.tsx
-
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,45 +11,46 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a 
-            href="/" 
+          <Link
+            href="/"
             className="text-xl font-medium text-gray-900 hover:text-gray-600 transition-colors"
           >
             Rendani
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-4">
-            <a 
-              href="/projects" 
+            <Link
+              href="/projects"
               className="px-4 py-2 rounded-full text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all duration-300"
             >
               Projects
-            </a>
-            <a 
-              href="/photography" 
+            </Link>
+            <Link
+              href="/photography"
               className="px-4 py-2 rounded-full text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all duration-300"
             >
               Photography
-            </a>
-            <a 
-              href="/blog" 
+            </Link>
+            <Link
+              href="/blog"
               className="px-4 py-2 rounded-full text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 transition-all duration-300"
             >
               Blog
-            </a>
-            <a 
-              href="/contact" 
+            </Link>
+            <Link
+              href="/contact"
               className="px-4 py-2 rounded-full text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 transform hover:scale-105 transition-all duration-300 shadow-sm hover:shadow"
             >
               Contact
-            </a>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
+            aria-label="Toggle Menu"
             className="md:hidden p-2 rounded-lg hover:bg-gray-100"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           >
             <svg
               className="w-6 h-6"
@@ -82,30 +81,30 @@ export default function Navigation() {
         {isMobileMenuOpen && (
           <div className="md:hidden py-4">
             <div className="flex flex-col space-y-2">
-              <a 
+              <Link
                 href="/projects"
                 className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg"
               >
                 Projects
-              </a>
-              <a 
+              </Link>
+              <Link
                 href="/photography"
                 className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg"
               >
                 Photography
-              </a>
-              <a 
+              </Link>
+              <Link
                 href="/blog"
                 className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-100 rounded-lg"
               >
                 Blog
-              </a>
-              <a 
+              </Link>
+              <Link
                 href="/contact"
                 className="px-4 py-2 text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 rounded-lg"
               >
                 Contact Me
-              </a>
+              </Link>
             </div>
           </div>
         )}
