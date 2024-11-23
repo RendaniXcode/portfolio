@@ -1,5 +1,7 @@
 'use client';
 
+import Image from 'next/image'; // Import Image component
+
 export default function PhotographyPage() {
   const photos = [
     {
@@ -57,9 +59,11 @@ export default function PhotographyPage() {
               key={index}
               className="group relative overflow-hidden rounded-2xl border border-gray-200 hover:shadow-xl transition-all duration-300"
             >
-              <img 
+              <Image 
                 src={photo.image}
                 alt={photo.title}
+                width={600} // Provide width
+                height={400} // Provide height
                 className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">

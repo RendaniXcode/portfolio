@@ -1,8 +1,6 @@
-// File: src/components/blog/blog-card.tsx
-// Blog Card Component
-// Path: ./src/components/blog/blog-card.tsx
-
 'use client';
+
+import Image from 'next/image';
 
 interface BlogPost {
   title: string;
@@ -23,9 +21,11 @@ export default function BlogCard({ post }: BlogCardProps) {
     <article className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300">
       <div className="md:flex">
         <div className="md:w-1/3">
-          <img 
+          <Image
             src={post.image}
             alt={post.title}
+            width={400} // You can adjust the width
+            height={300} // You can adjust the height
             className="w-full h-48 md:h-full object-cover"
           />
         </div>
@@ -38,20 +38,16 @@ export default function BlogCard({ post }: BlogCardProps) {
               {new Date(post.date).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
-                day: 'numeric'
+                day: 'numeric',
               })}
             </time>
             <span>{post.readTime}</span>
           </div>
-          <h2 className="text-2xl font-medium text-gray-900 mb-4">
-            {post.title}
-          </h2>
-          <p className="text-gray-600 mb-6">
-            {post.excerpt}
-          </p>
+          <h2 className="text-2xl font-medium text-gray-900 mb-4">{post.title}</h2>
+          <p className="text-gray-600 mb-6">{post.excerpt}</p>
           <div className="mb-6 flex flex-wrap gap-2">
             {post.tags.map((tag, index) => (
-              <span 
+              <span
                 key={index}
                 className="px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-700"
               >
@@ -60,7 +56,9 @@ export default function BlogCard({ post }: BlogCardProps) {
             ))}
           </div>
           <button
-            onClick={() => {/* Add click handler later */}}
+            onClick={() => {
+              /* Add click handler later */
+            }}
             className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group"
           >
             Read more

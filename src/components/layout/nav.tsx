@@ -35,7 +35,7 @@ export default function Navigation() {
               href="/contact" 
               className="px-4 py-2 rounded-full text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors"
             >
-              Contact
+              Contact Me
             </a>
           </nav>
         </div>

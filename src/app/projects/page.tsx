@@ -1,40 +1,45 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function ProjectsPage() {
   const projects = [
     {
       title: "AWS Cloud Migration",
-      description: "Led the transformation of a monolithic WordPress-based web application to a modernised AWS 3-tier application architecture.",
+      description:
+        "Led the transformation of a monolithic WordPress-based web application to a modernized AWS 3-tier application architecture.",
       technologies: ["AWS", "CloudFront", "WAF", "WordPress"],
       achievements: [
         "Enhanced user experience by reducing load times from 2.3 to 0.9 minutes",
         "Implemented robust security measures",
-        "Automated infrastructure configuration"
+        "Automated infrastructure configuration",
       ],
-      image: "/api/placeholder/600/400"
+      image: "/static/aws-migration.jpg", // Update with actual static or dynamic image URL
     },
     {
       title: "DevSecOps Implementation",
-      description: "Implemented comprehensive DevSecOps methodology for enterprise clients at Red Hat.",
+      description:
+        "Implemented comprehensive DevSecOps methodology for enterprise clients at Red Hat.",
       technologies: ["Kubernetes", "Ansible", "RHEL", "Jenkins"],
       achievements: [
         "Reduced deployment time by 60%",
         "Enhanced security protocols",
-        "Streamlined CI/CD pipeline"
+        "Streamlined CI/CD pipeline",
       ],
-      image: "/api/placeholder/600/400"
+      image: "/static/devsecops.jpg", // Update with actual static or dynamic image URL
     },
     {
       title: "Network Optimization",
-      description: "Spearheaded network optimization project at Vodacom SA, improving overall network performance.",
+      description:
+        "Spearheaded network optimization project at Vodacom SA, improving overall network performance.",
       technologies: ["Network Architecture", "Performance Tuning", "Monitoring"],
       achievements: [
         "Achieved 30% reduction in network downtime",
         "Implemented proactive monitoring",
-        "Enhanced problem resolution process"
+        "Enhanced problem resolution process",
       ],
-      image: "/api/placeholder/600/400"
-    }
+      image: "/static/network-optimization.jpg", // Update with actual static or dynamic image URL
+    },
   ];
 
   return (
@@ -43,29 +48,31 @@ export default function ProjectsPage() {
         <div className="text-center mb-16">
           <h1 className="text-4xl font-medium text-gray-900 mb-4">Projects</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            A selection of my key projects showcasing expertise in cloud architecture, 
+            A selection of my key projects showcasing expertise in cloud architecture,
             DevOps, and enterprise solutions.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div 
+            <div
               key={index}
               className="bg-white rounded-2xl border border-gray-200 overflow-hidden hover:shadow-xl transition-all duration-300"
             >
-              <img 
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48 object-cover"
-              />
+              <div className="relative w-full h-48">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-t-2xl"
+                />
+              </div>
               <div className="p-6">
                 <h3 className="text-xl font-medium text-gray-900 mb-2">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 mb-4">
-                  {project.description}
-                </p>
+                <p className="text-gray-600 mb-4">{project.description}</p>
                 <div className="mb-4">
                   <h4 className="text-sm font-medium text-gray-900 mb-2">Key Achievements:</h4>
                   <ul className="list-disc list-inside space-y-1 text-gray-600 text-sm">
@@ -76,7 +83,7 @@ export default function ProjectsPage() {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, i) => (
-                    <span 
+                    <span
                       key={i}
                       className="px-3 py-1 rounded-full text-sm bg-gray-100 text-gray-800"
                     >
